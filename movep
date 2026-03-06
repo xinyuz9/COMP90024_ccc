@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# 设置目标文件夹名称
+TARGET_DIR="Picture"
+
+# 如果目标文件夹不存在，则创建
+mkdir -p "$TARGET_DIR"
+
+# 移动当前目录下所有 .png 文件（不递归子目录）
+for file in *.png; do
+    # 如果没有匹配到文件，跳过
+    [ -e "$file" ] || continue
+    mv "$file" "$TARGET_DIR/"
+done
+
+echo "所有 PNG 文件已移动到 $TARGET_DIR 文件夹中。"
